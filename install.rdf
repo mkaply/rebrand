@@ -1,0 +1,30 @@
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+    <Description about="urn:mozilla:install-manifest">
+
+        <em:id>rebrand@extensions.kaply.com</em:id>
+        <em:name>Rebrand</em:name>
+        <em:version>1.5.3</em:version>
+        <em:description></em:description>
+        <em:creator>Michael Kaply</em:creator>
+        <em:iconURL>chrome://rebrand/content/rebrand.png</em:iconURL>
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>3.5</em:minVersion>
+                <em:maxVersion>38.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        <!-- SeaMonkey -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+                <em:minVersion>2.0</em:minVersion>
+                <em:maxVersion>2.7.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
+    </Description>
+
+</RDF>

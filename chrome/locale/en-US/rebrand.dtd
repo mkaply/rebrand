@@ -1,0 +1,58 @@
+<!ENTITY  rebrand.title                 "Rebranding Wizard">
+
+<!ENTITY  customizeExt.label            "Extension Details">
+<!ENTITY  customizeExt.description      "This wizard allows you to create an XPI that rebrands Firefox, Thunderbird or SeaMonkey.">
+<!ENTITY  id.label                      "Unique ID:">
+<!ENTITY  id.format                     "Format: extensionname@organization.tld">
+<!ENTITY  name.label                    "Name:">
+<!ENTITY  version.label                 "Version:">
+<!ENTITY  description.label             "Description (optional):">
+<!ENTITY  creator.label                 "Creator (optional):">
+<!ENTITY  homepageURL.label             "Homepage URL (optional):">
+<!ENTITY  updateURL.label               "Update URL (optional):">
+<!ENTITY  updateKey.label               "Update Public Key (optional):">
+<!ENTITY  updateKey.description         "Firefox and Thunderbird require a public key if your extension does not provide a secure update.">
+<!ENTITY  icon.label                    "Icon (optional):">
+<!ENTITY  chooseFile.label              "Choose File...">
+<!ENTITY  chooseDir.label               "Choose Dir...">
+<!ENTITY  filename.label                "Filename (optional):">
+
+<!ENTITY  names.label                   "Names">
+<!ENTITY  names.description             "Various and sundry names">
+<!ENTITY  brandShortName.label          "The brand short name (for example Firefox):">
+<!ENTITY  brandFullName.label           "The brand full name (for example Mozilla Firefox):">
+<!ENTITY  vendorShortName.label         "The vendor name (for example Mozilla):">
+<!ENTITY  logoCopyright.label           "About dialog trademark:">
+<!ENTITY  trademarkInfo2.label          "About dialog trademark line 2 (Firefox 4):">
+
+<!ENTITY  images.label                  "Images">
+<!ENTITY  images.description            "Images used throughout the user interface">
+<!ENTITY  about.label                   "The image in the about dialog (300px by 236px PNG):">
+<!ENTITY  aboutCredits.label            "The image at the top of the credits in the about dialog (300px by 149px PNG).">
+<!ENTITY  aboutCredits2.label           "For effect, there should be a transparent blend at the bottom:">
+<!ENTITY  icon64.label                  "The image used for alert dialogs on Mac (64px by 64px PNG):">
+<!ENTITY  icon48.label                  "The image used for branded wizards (48px by 48px PNG):">
+<!ENTITY  icon16.label                  "The image used for the favicon on the startpage (16px by 16px PNG):">
+<!ENTITY  aboutLogo.label               "The image in the about dialog in FF4 (210px by 210px PNG):">
+<!ENTITY  aboutWordmark.label           "The wordmark image in the about dialog in FF4 (130px by 38px PNG):">
+
+<!ENTITY  throbber.label                "Throbber (SeaMonkey only)">
+<!ENTITY  throbber.description          "Images used for the throbber">
+<!ENTITY  throbber-single.label         "Large still throbber (32x32)">
+<!ENTITY  throbber-anim.label           "Large animated throbber (32x32)">
+<!ENTITY  throbber16-single.label       "Small still throbber (16x16)">
+<!ENTITY  throbber16-anim.label         "Small animated throbber (16x16)">
+
+<!ENTITY  icons.label                   "Icons">
+<!ENTITY  icons.description             "Icons used for the system menu and start page">
+<!ENTITY  main-window-ico.label         "Windows icon">
+<!ENTITY  main-window-xbm.label         "Linux xbm">
+<!ENTITY  main-window16-xbm.label       "Linux xbm (16 color)">
+
+<!ENTITY  finish.label                  "Locations">
+<!ENTITY  finish.description            "Specify locations and create your XPI">
+<!ENTITY  xpiLocation.label             "XPI Location">
+<!ENTITY  xpiLocation.description       "Specify the directory in which to place the output:">
+<!ENTITY  rebrandFinish.description   "Click Finish to create your XPI.">
+
+

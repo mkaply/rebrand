@@ -1,0 +1,12 @@
+<!ENTITY  brandShortName        "%brandShortName%">
+<!ENTITY  brandShorterName      "%brandShortName%">
+<!ENTITY  brandFullName         "%brandFullName%">            
+<!ENTITY  vendorShortName       "%vendorShortName%">
+
+<!ENTITY  sidebarName           "Sidebar">
+<!ENTITY  copyright.string      "%logoCopyright%">
+
+<!ENTITY  trademarkInfo.part1   "%logoCopyright%">
+<!ENTITY  trademarkInfo.part2   "%trademarkInfo2%">
+
+<!ENTITY logoTrademark "">

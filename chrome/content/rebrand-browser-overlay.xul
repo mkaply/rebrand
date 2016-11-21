@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<overlay id="Overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript;version=1.7" src="rebrand-init.js" />
+  <menupopup id="menu_ToolsPopup">
+    <menuitem label="Rebranding Wizard" insertafter="devToolsSeparator"
+              oncommand="window.openDialog('chrome://rebrand/content/rebrand.xul','rebrand','chrome,centerscreen');"
+              onclick="checkForMiddleClick(this, event);"/>
+  </menupopup>
+  <menupopup id="taskPopup">
+    <menuitem label="Rebranding Wizard" insertafter="addonsmgr"
+              oncommand="window.openDialog('chrome://rebrand/content/rebrand.xul','rebrand','chrome,centerscreen');"
+              onclick="checkForMiddleClick(this, event);"/>
+  </menupopup>
+  <menupopup id="appmenu_webDeveloper_popup">
+    <menuitem label="Rebranding Wizard" insertbefore="appmenu_devToolsEndSeparator"
+              oncommand="window.openDialog('chrome://rebrand/content/rebrand.xul','rebrand','chrome,centerscreen');"
+              onclick="checkForMiddleClick(this, event);"/>
+  </menupopup>
+</overlay>
+
+  

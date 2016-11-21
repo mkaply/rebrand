@@ -1,0 +1,9 @@
+.DS_Store
+*.kpf
+*.bak
+*.orig
+*.rej
+*.komodoproject
+buildit.sh
+excludefile.txt
+netscape

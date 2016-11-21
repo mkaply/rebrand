@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+#if 0
+   - Version: MPL 1.1/GPL 2.0/LGPL 2.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is the rebranding extension.
+   -
+   - The Initial Developer of the Original Code is IBM Corp.
+   - Portions created by the Initial Developer are Copyright (C) 2005
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - Alternatively, the contents of this file may be used under the terms of
+   - either the GNU General Public License Version 2 or later (the "GPL"), or
+   - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+   - in which case the provisions of the GPL or the LGPL are applicable instead
+   - of those above. If you wish to allow use of your version of this file only
+   - under the terms of either the GPL or the LGPL, and not to allow others to
+   - use your version of this file under the terms of the MPL, indicate your
+   - decision by deleting the provisions above and replace them with the notice
+   - and other provisions required by the LGPL or the GPL. If you do not delete
+   - the provisions above, a recipient may use your version of this file under
+   - the terms of any one of the MPL, the GPL or the LGPL.
+   -
+#endif
+   - ***** END LICENSE BLOCK ***** -->
+
+<!DOCTYPE wizard SYSTEM "chrome://rebrand/locale/rebrand.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://rebrand/content/rebrand.css" type="text/css"?>
+
+<wizard id="example-window" title="&rebrand.title;"
+  height="600"
+  width="640"
+  onwizardcancel="return CloseWizard();"
+  onwizardfinish="return CreateXPI();"
+  onload="OpenWizard();"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="chrome://rebrand/content/rebrand.js"/>
+  <script type="application/x-javascript"   
+  src="chrome://global/content/dialogOverlay.js" />
+
+  <wizardpage label="Introduction" description="Introduction">
+	<groupbox>
+	  <caption label="Disclaimer"/>
+	  <description>
+		This extension is intended for two purposes: entertainment and redistributing
+		Firefox, Thunderbird or SeaMonkey within your organization.
+	 </description>
+	 <description>
+		Under no circumstances should this extension be bundled with Firefox or Thunderbird and
+		delivered to another individual unless that individual is within your organization.
+		If you want more information, you can consult the <html:span onclick="var newTab = window.opener.gBrowser.addTab('http://www.mozilla.org/foundation/trademarks/');window.opener.gBrowser.selectedTab = newTab;" class="inline-link">Mozilla Foundation Trademark Policy</html:span>.
+	 </description>
+	 <description>
+		In addition, it should be noted that this extension does not completely rebrand
+		on Mac. The application title in the menu bar cannot be changed from
+		an extension.
+	 </description>	
+	  <description>
+		If you have a specific need to rebrand Firefox or Thunderbird and ship it (including Mac), please
+		contact Kaply Consulting at <html:span onclick="var newTab = window.opener.gBrowser.addTab('http://consulting.kaply.com');window.opener.gBrowser.selectedTab = newTab;" class="inline-link">consulting.kaply.com</html:span>. We specialize in that.
+	 </description>
+	  </groupbox>
+	  <groupbox>
+	  <caption label="Images"/>
+	  <description>
+		Before beginning this process, you should have the following images ready:
+		<html:ul>
+		  <html:li>About - 300x236 PNG</html:li>
+		  <html:li>About Credits - 300x149 PNG</html:li>
+		  <html:li>Branded Wizards - 48x48 PNG</html:li>
+		  <html:li>Mac Notifications - 64x64 PNG</html:li>
+		  <html:li>Start page favicon - 16x16 PNG</html:li>
+		  <html:li>About Logo (Firefox 4) - 210x210 PNG</html:li>
+		  <html:li>About Wordmark (Firefox 4) - 130x38 PNG</html:li>
+		</html:ul>
+		If you want to change the throbber on SeaMonkey, you'll need:
+		<html:ul>
+		  <html:li>Still throbber - 32x32 GIF, 16x16 GIF</html:li>
+		  <html:li>Animated throbber - 32x32 Animated GIF, 16x16 GIF</html:li>
+		</html:ul>
+	 </description>
+   </groupbox>
+   
+  </wizardpage>
+
+ <wizardpage label="&customizeExt.label;" description="&customizeExt.description;"
+             onpageshow="initimage('iconURL','icon');"
+             onpageadvanced="return (ValidateFile('iconURL') &amp;&amp; Validate('id','name','version','updateURL'));">
+   <grid>
+     <columns>
+       <column/>
+       <column flex="1"/>
+     </columns>
+     <rows>
+       <row align="center">
+         <vbox align="right">
+           <label control="id" pack="end">&id.label;</label>
+         </vbox>
+         <textbox id="id"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label/>
+         </vbox>
+         <description>&id.format;</description>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="name">&name.label;</label>
+         </vbox>
+         <textbox id="name"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="version">&version.label;</label>
+         </vbox>
+         <textbox id="version"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="description">&description.label;</label>
+         </vbox>
+         <textbox id="description"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="creator">&creator.label;</label>
+         </vbox>
+         <textbox id="creator"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="homepageURL">&homepageURL.label;</label>
+         </vbox>
+         <textbox id="homepageURL"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="updateURL">&updateURL.label;</label>
+         </vbox>
+         <textbox id="updateURL"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="updateKey">&updateKey.label;</label>
+         </vbox>
+         <textbox id="updateKey"/>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label/>
+         </vbox>
+         <label>&updateKey.description; See: <html:span onclick="var newTab = window.opener.gBrowser.addTab('http://developer.mozilla.org/en/docs/Extension_Versioning,_Update_and_Compatibility');window.opener.gBrowser.selectedTab = newTab;" class="inline-link">http://developer.mozilla.org/en/docs/Extension_Versioning,_Update_and_Compatibility</html:span></label>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="iconURL">&icon.label;</label>
+         </vbox>
+         <hbox align="center">
+           <textbox flex="1" id="iconURL"/>
+           <image id="icon" src='' width='32' height='32'/>
+           <button label="&chooseFile.label;" oncommand="chooseimage('iconURL','icon');"/>
+         </hbox>
+       </row>
+       <row align="center">
+         <vbox align="right">
+           <label control="filename">&filename.label;</label>
+         </vbox>
+         <hbox align="center">
+           <textbox id="filename"/>
+           <label>.xpi</label>
+         </hbox>
+       </row>
+     </rows>
+   </grid>
+ </wizardpage>
+
+  <wizardpage label="&names.label;" description="&names.description;">
+    <groupbox>
+      <label control="brandShortName">&brandShortName.label;</label>
+      <vbox>
+        <textbox id="brandShortName" flex="1"/>
+      </vbox>
+      <label control="brandFullName">&brandFullName.label;</label>
+      <vbox>
+        <textbox id="brandFullName" flex="1"/>
+      </vbox>
+      <label control="vendorShortName">&vendorShortName.label;</label>
+      <vbox>
+        <textbox id="vendorShortName" flex="1"/>
+      </vbox>
+      <label control="logoCopyright">&logoCopyright.label;</label>
+      <vbox>
+        <textbox id="logoCopyright" flex="1"/>
+      </vbox>
+      <label control="trademarkInfo2">&trademarkInfo2.label;</label>
+      <vbox>
+        <textbox id="trademarkInfo2" flex="1"/>
+      </vbox>
+    </groupbox>
+  </wizardpage>
+
+  <wizardpage label="&images.label;" onpageshow="initimage('about','about.png');
+                                         initimage('aboutCredits','aboutCredits.png');
+                                         initimage('icon64','icon64.png');
+                                         initimage('icon48','icon48.png');
+                                         initimage('aboutLogo','aboutLogo.png');
+                                         initimage('aboutWordmark','aboutWordmark.png');"
+                             onpageadvanced="return (ValidateFile('about','aboutCredits','icon64','icon48','aboutLogo','aboutWordmark'));"
+                             description="&images.description;">
+
+    <groupbox>
+      <label>&about.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="about"/>
+        <image id="about.png" src='' width='75' height='59'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('about','about.png');"/>
+      </hbox>
+      <label>&aboutCredits.label;</label>
+      <label>&aboutCredits2.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="aboutCredits"/>
+        <image id="aboutCredits.png" src='' width='75' height='37'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('aboutCredits','aboutCredits.png');"/>
+      </hbox>
+      <label>&icon48.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="icon48"/>
+        <image id="icon48.png" src='' width='16' height='16'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('icon48','icon48.png');"/>
+      </hbox>
+      <label>&icon64.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="icon64"/>
+        <image id="icon64.png" src='' width='16' height='16'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('icon64','icon64.png');"/>
+      </hbox>
+      <label>&aboutLogo.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="aboutLogo"/>
+        <image id="aboutLogo.png" src='' width='50' height='50'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('aboutLogo','aboutLogo.png');"/>
+      </hbox>
+      <label>&aboutWordmark.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="aboutWordmark"/>
+        <image id="aboutWordmark.png" src='' width='33' height='10'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('aboutWordmark','aboutWordmark.png');"/>
+      </hbox>
+    </groupbox>
+  </wizardpage>
+
+  <wizardpage label="&throbber.label;" onpageshow="initimage('throbber-single','throbber-single-image');
+                                                   initimage('throbber-anim','throbber-anim-image');
+												   initimage('throbber16-single','throbber16-single-image');
+												   initimage('throbber16-anim','throbber16-anim-image');"
+                            onpageadvanced="return (ValidateFile('throbber-single','throbber-anim','throbber16-single','throbber16-anim'));"
+                            description="&throbber.description;">
+    <groupbox>
+      <label>&throbber-single.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="throbber-single"/>
+        <image id="throbber-single-image" src='' width='32' height='32'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('throbber-single','throbber-single-image');"/>
+      </hbox>
+      <label>&throbber-anim.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="throbber-anim"/>
+        <image id="throbber-anim-image" src='' width='32' height='32'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('throbber-anim','throbber-anim-image');"/>
+      </hbox>
+      <label>&throbber16-single.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="throbber16-single"/>
+        <image id="throbber16-single-image" src='' width='16' height='16'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('throbber16-single','throbber16-single-image');"/>
+      </hbox>
+      <label>&throbber16-anim.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="throbber16-anim"/>
+        <image id="throbber16-anim-image" src='' width='16' height='16'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('throbber16-anim','throbber16-anim-image');"/>
+      </hbox>
+    </groupbox>
+	<description>These images are only used by SeaMonkey.</description>
+  </wizardpage>
+
+  <wizardpage label="&icons.label;" onpageshow="initimage('main-window-ico','main-window.ico');
+                                                initimage('main-window-xbm','main-window.xbm');
+                                                initimage('icon16','icon16');
+						initimage('main-window16-xbm','main-window16.xbm');"
+                            onpageadvanced="return (ValidateFile('main-window-ico','main-window-xbm','main-window16-xbm','icon16'));"
+                            description="&icons.description;">
+    <groupbox>
+      <caption>System Menu</caption>
+      <description>These icons are only used by XUL in certain places. These do not change the icon used by the operating system</description>
+      <label>&main-window-ico.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="main-window-ico"/>
+        <image id="main-window.ico" src='' width='16' height='16'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('main-window-ico','main-window.ico');"/>
+      </hbox>
+      <label>&main-window-xbm.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="main-window-xbm"/>
+        <image id="main-window.xbm" src='' width='32' height='32'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('main-window-xbm','main-window.xbm');"/>
+      </hbox>
+      <label>&main-window16-xbm.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="main-window16-xbm"/>
+        <image id="main-window16.xbm" src='' width='32' height='32'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('main-window16-xbm','main-window16.xbm');"/>
+      </hbox>
+    </groupbox>
+    <groupbox>
+      <caption>Start Page</caption>
+      <label>&icon16.label;</label>
+      <hbox align="center">
+        <textbox flex="1" id="icon16"/>
+        <image id="icon16.png" src='' width='16' height='16'/>
+        <button label="&chooseFile.label;" oncommand="chooseimage('icon16','icon16.png');"/>
+      </hbox>
+    </groupbox>
+  </wizardpage>
+
+  <wizardpage label="&finish.label;" description="&finish.description;">
+    <groupbox>
+      <caption label="&xpiLocation.label;"/>
+    <description>&xpiLocation.description;</description>
+      <hbox align="center">
+        <textbox flex="1" id="xpiLocation"/>
+        <button label="&chooseDir.label;" oncommand="choosedir('xpiLocation');"/>
+      </hbox>
+    </groupbox>
+  </wizardpage>
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="bundle_rebrand" src="chrome://rebrand/locale/rebrand.properties"/>
+  </stringbundleset>
+
+</wizard>
